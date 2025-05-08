@@ -33,19 +33,19 @@ export const SubscriptionForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full animate-fade-in" style={{ animationDelay: "0.4s" }}>
       <Input
         type="email"
         placeholder="Enter your email here *"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="bg-white/20 backdrop-blur-sm text-white placeholder:text-white/70 border-white/30 focus:border-white"
+        className="bg-white/20 backdrop-blur-sm text-white placeholder:text-white/70 border-white/30 focus:border-white text-sm"
         required
       />
       <Button 
         type="submit" 
         disabled={isSubmitting}
-        className="bg-comingsoon-button hover:bg-comingsoon-button/90 text-white font-medium"
+        className="bg-comingsoon-button hover:bg-comingsoon-button/90 text-white font-medium text-sm"
       >
         Notify Me!
       </Button>

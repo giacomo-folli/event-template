@@ -70,6 +70,7 @@ export default {
 			},
 			backgroundImage: {
 				'clouds': "url('/lovable-uploads/a0739848-5b33-4419-8d2d-1c078efb449c.png')",
+				'unsplash-bg': "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80')",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
