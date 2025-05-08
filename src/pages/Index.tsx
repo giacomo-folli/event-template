@@ -12,6 +12,10 @@ const Index = () => {
     month: 'long',
     day: 'numeric'
   });
+  
+  // Format time for start and end hours (10 AM - 2 PM for example)
+  const startHour = '10 AM';
+  const endHour = '2 PM';
 
   return (
     <div className="min-h-screen w-full bg-unsplash-bg bg-cover bg-center relative overflow-hidden">
@@ -26,12 +30,12 @@ const Index = () => {
             </h1>
             
             {/* Launch Date */}
-            <p className="text-white/90 text-sm sm:text-base mb-2 text-left animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Launching on {formattedDate}
+            <p className="text-white/70 text-xs sm:text-sm mb-2 text-left animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              {formattedDate} - {startHour} - {endHour}
             </p>
             
             {/* Description */}
-            <p className="text-white/80 mb-6 text-sm animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <p className="text-white/80 mb-6 text-sm text-left animate-fade-in" style={{ animationDelay: "0.3s" }}>
               We're working hard to bring you an amazing marketing platform that will help your business grow. 
               Sign up to be notified when we launch!
             </p>
