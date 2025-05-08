@@ -37,10 +37,8 @@
 </script>
 
 <div class="min-h-screen w-full bg-unsplash-bg bg-cover bg-center relative overflow-hidden">
-  <div class="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
-  
   <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full mx-auto bg-white/10 backdrop-blur-md border border-white/20 shadow-xl rounded-lg">
+    <div class="max-w-md w-full mx-auto bg-white/10 backdrop-blur-lg border border-white/10 shadow-2xl rounded-lg">
       <div class="p-6 text-center">
         <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight animate-fade-in">
           MARKETING INC.
@@ -50,16 +48,25 @@
           {formattedDate} - {startHour} - {endHour}
         </p>
         
-        <p class="text-white/80 mb-6 text-sm text-left animate-fade-in" style="animation-delay: 0.3s">
+        <p class="text-white/70 mb-6 text-sm text-left animate-fade-in" style="animation-delay: 0.3s">
           We're working hard to bring you an amazing marketing platform that will help your business grow. 
           Sign up to be notified when we launch!
         </p>
         
         <EmailForm />
-        <SocialShare />
-        
-        <div class="mt-6 pt-4 border-t border-white/10">
-          <CountdownTimer {countdown} />
+
+        <p class="text-white/70 my-4 text-sm text-center animate-fade-in" style="animation-delay: 0.3s">
+          Are you ready?
+        </p>
+       
+        <div class="w-full flex items-center justify-between gap-4">
+          <div class="w-full">
+            <CountdownTimer {countdown} />
+          </div>
+          
+          <div class="w-full">
+            <SocialShare />
+          </div>
         </div>
       </div>
     </div>

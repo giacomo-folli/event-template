@@ -24,26 +24,26 @@
   }
 </script>
 
-<div class="flex justify-center gap-4 animate-fade-in" style="animation-delay: 0.5s">
+<div class="flex justify-end gap-4 animate-fade-in" style="animation-delay: 0.5s">
   <button
     onclick={() => shareOnSocial('twitter')}
     class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
     aria-label="Share on Twitter"
   >
-    <Twitter class="w-5 h-5 text-white" />
+    <Twitter class="w-4 h-4 text-white" />
   </button>
   <button
     onclick={() => shareOnSocial('facebook')}
     class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
     aria-label="Share on Facebook"
   >
-    <Facebook class="w-5 h-5 text-white" />
+    <Facebook class="w-4 h-4 text-white" />
   </button>
   <button
     onclick={() => shareOnSocial('linkedin')}
     class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
     aria-label="Share on LinkedIn"
   >
-    <Linkedin class="w-5 h-5 text-white" />
+    <Linkedin class="w-4 h-4 text-white" />
   </button>
 </div>
