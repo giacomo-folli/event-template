@@ -1,8 +1,8 @@
 <script lang="ts">
   import { subscribeParticipant } from "./utils";
 
-    let email = $state('');
-    let isSubmitting = $state(false);
+  let email = $state('');
+  let isSubmitting = $state(false);
 
   async function handleSubmit(event: Event) {
     event.preventDefault();

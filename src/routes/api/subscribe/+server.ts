@@ -10,7 +10,7 @@ export const POST: RequestHandler = async ({ url, fetch, request }) => {
     }
 
     const apiUrl = `https://bernini.replit.app/api/events/${id}/participants`
-    const response = await fetch(apiUrl,  {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'X-API-Key': env.API_KEY
