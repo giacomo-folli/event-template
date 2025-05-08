@@ -45,7 +45,11 @@
     return () => clearInterval(interval);
   });
 
-  onMount(() => {    
+  onMount(() => {
+    if (data?.event){
+      sessionStorage.setItem('event', JSON.stringify(data.event));
+    }
+
     const backgroundImage = document.getElementById('cover-image')
     if (!backgroundImage) return;
 

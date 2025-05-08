@@ -1,24 +1,33 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy';
+  import { subscribeParticipant } from "./utils";
 
-  let email = $state('');
-  let isSubmitting = $state(false);
+    let email = $state('');
+    let isSubmitting = $state(false);
 
-  async function handleSubmit() {
+  async function handleSubmit(event: Event) {
+    event.preventDefault();
     if (!email || !email.includes('@')) {
-      alert('Please enter a valid email address.');
+      console.log('Please enter a valid email address.');
       return;
     }
 
     isSubmitting = true;
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const eventData = sessionStorage.getItem('event');
+    if (!eventData) {
+      console.log('Event not found');
+      return;
+    }
+    
+    const sessionEvent = JSON.parse(eventData);
+    await subscribeParticipant(email, sessionEvent);
+    
     alert('Thank you! We\'ll notify you when we launch.');
     email = '';
     isSubmitting = false;
   }
 </script>
 
-<form onsubmit={preventDefault(handleSubmit)} class="flex flex-col gap-3 w-full animate-fade-in" style="animation-delay: 0.4s">
+<form onsubmit={handleSubmit} class="flex flex-col gap-3 w-full animate-fade-in" style="animation-delay: 0.4s">
   <input
     type="email"
     placeholder="Enter your email here *"
