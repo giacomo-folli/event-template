@@ -1,16 +1,15 @@
+import { json } from "@sveltejs/kit"
 import type { FetchedEvent } from "./types"
 
 export const subscribeParticipant = async (email: string, event: FetchedEvent) => {
-    const apiResource = `/api/events/${event.id}/participants`
-    const response = await fetch(apiResource, {
+    const response = await fetch('/api/subscribe', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email, id: event.id })
     })
 
     if (!response.ok) {
         throw new Error('Failed to subscribe participant')
     }
+
+    return json({ ok: true })
 }
