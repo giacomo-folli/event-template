@@ -20,18 +20,13 @@ const Index = () => {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <Card className="max-w-md w-full mx-auto bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
           <CardContent className="p-6 text-center">
-            {/* Pre-title */}
-            <p className="text-white/90 text-xs sm:text-sm uppercase tracking-widest mb-2 animate-fade-in">
-              WE ARE LAUNCHING OUR WEBSITE SOON.
-            </p>
-            
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight animate-fade-in">
               MARKETING INC.
             </h1>
             
             {/* Launch Date */}
-            <p className="text-white/90 text-base sm:text-lg mb-2 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <p className="text-white/90 text-sm sm:text-base mb-2 text-left animate-fade-in" style={{ animationDelay: "0.2s" }}>
               Launching on {formattedDate}
             </p>
             
