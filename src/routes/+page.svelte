@@ -15,7 +15,7 @@
   const startHour = '10 AM';
   const endHour = '2 PM';
 
-  let countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  let countdown = $state({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   function updateCountdown() {
     const now = new Date().getTime();

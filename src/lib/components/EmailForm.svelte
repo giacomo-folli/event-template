@@ -1,6 +1,8 @@
 <script lang="ts">
-  let email = '';
-  let isSubmitting = false;
+  import { preventDefault } from 'svelte/legacy';
+
+  let email = $state('');
+  let isSubmitting = $state(false);
 
   async function handleSubmit() {
     if (!email || !email.includes('@')) {
@@ -16,7 +18,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-3 w-full animate-fade-in" style="animation-delay: 0.4s">
+<form onsubmit={preventDefault(handleSubmit)} class="flex flex-col gap-3 w-full animate-fade-in" style="animation-delay: 0.4s">
   <input
     type="email"
     placeholder="Enter your email here *"

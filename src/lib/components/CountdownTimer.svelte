@@ -6,7 +6,11 @@
     seconds: number;
   };
   
-  export let countdown: Countdown;
+  interface Props {
+    countdown: Countdown;
+  }
+
+  let { countdown }: Props = $props();
 </script>
 
 <div class="grid grid-cols-4 gap-2 text-white/70 text-sm">

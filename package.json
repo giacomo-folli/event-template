@@ -11,18 +11,52 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@sveltejs/kit": "^2.5.27",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
-    "svelte": "^4.2.7",
-    "svelte-check": "^3.6.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
     "tailwindcss": "^3.3.2",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.3"
+    "typescript": "^5.5.0",
+    "vite": "^5.4.4"
   },
   "dependencies": {
     "lucide-svelte": "^0.344.0"
   },
-  "type": "module"
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./components/CountdownTimer.svelte": {
+      "types": "./package/components/CountdownTimer.svelte.d.ts",
+      "svelte": "./package/components/CountdownTimer.svelte",
+      "default": "./package/components/CountdownTimer.svelte"
+    },
+    "./components/EmailForm.svelte": {
+      "types": "./package/components/EmailForm.svelte.d.ts",
+      "svelte": "./package/components/EmailForm.svelte",
+      "default": "./package/components/EmailForm.svelte"
+    },
+    "./components/SocialShare.svelte": {
+      "types": "./package/components/SocialShare.svelte.d.ts",
+      "svelte": "./package/components/SocialShare.svelte",
+      "default": "./package/components/SocialShare.svelte"
+    }
+  },
+  "files": [
+    "package"
+  ],
+  "typesVersions": {
+    ">4.0": {
+      "components/CountdownTimer.svelte": [
+        "./package/components/CountdownTimer.svelte.d.ts"
+      ],
+      "components/EmailForm.svelte": [
+        "./package/components/EmailForm.svelte.d.ts"
+      ],
+      "components/SocialShare.svelte": [
+        "./package/components/SocialShare.svelte.d.ts"
+      ]
+    }
+  }
 }
