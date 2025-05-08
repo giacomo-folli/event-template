@@ -5,7 +5,7 @@
   import { onMount } from 'svelte';
   import type { PageProps } from './$types';
 
-  let { data }: PageProps = $props(); 
+  let { data }: PageProps = $props();
 
   const startDate = new Date(data?.event?.startDate || '');
   const endDate = new Date(data?.event?.endDate || '');
@@ -45,7 +45,7 @@
     return () => clearInterval(interval);
   });
 
-  onMount(() => {
+  onMount(() => {    
     const backgroundImage = document.getElementById('cover-image')
     if (!backgroundImage) return;
 
@@ -58,7 +58,7 @@
     <div class="max-w-md w-full mx-auto bg-white/10 backdrop-blur-lg border border-white/10 shadow-2xl rounded-lg">
       <div class="p-6 text-center">
         <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight animate-fade-in">
-          {data.event?.title || 'Error'}
+          {data?.event?.title || 'Error'}
         </h1>
         
         <p class="text-white/70 text-xs sm:text-sm mb-2 text-left animate-fade-in" style="animation-delay: 0.2s">
@@ -66,7 +66,7 @@
         </p>
         
         <p class="text-white/70 mb-6 text-sm text-left animate-fade-in" style="animation-delay: 0.3s">
-          {data.event?.description || 'Error'}
+          {data?.event?.description || 'Error'}
         </p>
         
         <EmailForm />

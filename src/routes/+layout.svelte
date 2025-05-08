@@ -2,13 +2,18 @@
   import { fly } from 'svelte/transition';
   import '../app.css';
   import { onMount } from 'svelte';
-  
+  import type { FetchedEvent } from '$lib/components/types';  
   interface Props {
     children?: import('svelte').Snippet;
-    error?: string;
+    data: {
+      event: FetchedEvent;
+      error: string;
+    };
   }
 
-  let { children, error }: Props = $props();
+  let { children, data }: Props = $props();
+  let error = $state(data.error);
+
   onMount(() => {
     if (error) setTimeout(() => error = '', 4000);
   });

@@ -1,12 +1,8 @@
-import type { FetchedEvent } from '$lib/components/types';
 import type { LayoutLoad } from './$types';
 
-export const load: LayoutLoad = async ({ fetch }) => {
-    return fetch('/api')
+export const load: LayoutLoad = async ({ fetch, url }) => {
+    const id = url.searchParams.get('id');
+    return fetch(`/api/event?id=${id}`)
         .then(res => res.json())
-        .then(data => {
-            const event = data.events[0] as FetchedEvent;
-            return { event, error: '' };
-        })
-        .catch(error => ({ event: null, error: 'Failed to fetch event' }));
+        .catch((error) => ({ error: 'Failed to fetch event' }));
 };
