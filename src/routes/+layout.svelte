@@ -26,3 +26,7 @@
     <p>{error}</p>
 </div>
 {/if}
+
+<svelte:head>
+  <title>{data.event.title}</title>
+</svelte:head>
