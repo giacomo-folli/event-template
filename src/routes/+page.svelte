@@ -2,6 +2,7 @@
   import CountdownTimer from '$lib/components/CountdownTimer.svelte';
   import EmailForm from '$lib/components/EmailForm.svelte';
   import SocialShare from '$lib/components/SocialShare.svelte';
+  import { onMount } from 'svelte';
   import type { PageProps } from './$types';
 
   let { data }: PageProps = $props(); 
@@ -43,9 +44,16 @@
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   });
+
+  onMount(() => {
+    const backgroundImage = document.getElementById('cover-image')
+    if (!backgroundImage) return;
+
+    backgroundImage.style.backgroundImage = `url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80')`;
+  });
 </script>
 
-<div class="min-h-screen w-full bg-unsplash-bg bg-cover bg-center relative overflow-hidden">
+<div id="cover-image" class="min-h-screen w-full bg-cover bg-center relative overflow-hidden">
   <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full mx-auto bg-white/10 backdrop-blur-lg border border-white/10 shadow-2xl rounded-lg">
       <div class="p-6 text-center">
