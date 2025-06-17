@@ -2,7 +2,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import { componentTagger } from "lovable-tagger";
-import path from 'path';
+import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig(({ mode }) => ({
 	server: {
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
 	].filter(Boolean),
 	resolve: {
 		alias: {
-			"@": path.resolve(__dirname, "./src"),
+			"@": fileURLToPath(new URL('./src', import.meta.url)),
 		},
 	},
 }));
