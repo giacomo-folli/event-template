@@ -2,7 +2,8 @@
   import { fly } from 'svelte/transition';
   import '../app.css';
   import { onMount } from 'svelte';
-  import type { FetchedEvent } from '$lib/components/types';  
+  import type { FetchedEvent } from '$lib/components/types'; 
+   
   interface Props {
     children?: import('svelte').Snippet;
     data: {
