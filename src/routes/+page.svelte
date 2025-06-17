@@ -1,3 +1,4 @@
+
 <script lang="ts">
   import CountdownTimer from '$lib/components/CountdownTimer.svelte';
   import EmailForm from '$lib/components/EmailForm.svelte';
@@ -34,7 +35,7 @@
     countdown = {
       days: Math.floor(distance / (1000 * 60 * 60 * 24)),
       hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+      minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 / 60)),
       seconds: Math.floor((distance % (1000 * 60)) / 1000)
     };
   }
@@ -49,46 +50,66 @@
     if (data?.event){
       sessionStorage.setItem('event', JSON.stringify(data.event));
     }
-
-    const backgroundImage = document.getElementById('cover-image')
-    if (!backgroundImage) return;
-
-    backgroundImage.style.backgroundImage = `url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80')`;
   });
 </script>
 
-<div id="cover-image" class="min-h-screen w-full bg-cover bg-center relative overflow-hidden">
-  <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full mx-auto bg-white/10 backdrop-blur-lg border border-white/10 shadow-2xl rounded-lg">
-      <div class="p-6 text-center">
-        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight animate-fade-in">
-          {data?.event?.title || 'Error'}
-        </h1>
-        
-        <p class="text-white/70 text-xs sm:text-sm mb-2 text-left animate-fade-in" style="animation-delay: 0.2s">
-          {formattedDate} - {startHour} - {endHour}
-        </p>
-        
-        <p class="text-white/70 mb-6 text-sm text-left animate-fade-in" style="animation-delay: 0.3s">
-          {data?.event?.description || 'Error'}
-        </p>
-        
-        <EmailForm />
+<div class="min-h-screen w-full bg-black flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl w-full mx-auto text-center space-y-8">
+    <!-- Main heading -->
+    <div class="space-y-4">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight animate-fade-in">
+        {data?.event?.title || 'a worldwide leaderboard for developers.'}
+      </h1>
+      
+      <p class="text-gray-400 text-lg animate-fade-in" style="animation-delay: 0.2s">
+        {data?.event?.description || 'Discover your rank among AI-powered developers globally.'} 
+        <span class="text-white font-medium ml-2">COMING SOON</span>
+      </p>
+    </div>
 
-        <p class="text-white/70 my-4 text-sm text-center animate-fade-in" style="animation-delay: 0.3s">
-          Are you ready?
-        </p>
-       
-        <div class="w-full flex items-center justify-between gap-4">
-          <div class="w-full">
-            <CountdownTimer {countdown} />
-          </div>
-          
-          <div class="w-full">
-            <SocialShare />
-          </div>
-        </div>
+    <!-- Email form -->
+    <div class="animate-fade-in" style="animation-delay: 0.4s">
+      <EmailForm />
+    </div>
+
+    <!-- Countdown and waiting count -->
+    <div class="space-y-6 animate-fade-in" style="animation-delay: 0.6s">
+      <div class="text-gray-500 text-sm">
+        <CountdownTimer {countdown} />
       </div>
+      
+      <div class="text-gray-500 text-sm flex items-center justify-center gap-2">
+        <span>154 developers waiting</span>
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Platform logos -->
+    <div class="pt-8 animate-fade-in" style="animation-delay: 0.8s">
+      <p class="text-gray-500 text-sm mb-6">Track your AI usage across platforms</p>
+      <div class="flex items-center justify-center gap-8 opacity-60">
+        <span class="text-gray-400 text-sm">DeepSeek</span>
+        <span class="text-gray-400 text-sm">Google AI</span>
+        <span class="text-red-400 text-sm">Mistral</span>
+        <span class="text-gray-400 text-sm">Cohere</span>
+        <span class="text-teal-400 text-sm">Perplexity</span>
+      </div>
+    </div>
+
+    <!-- Bottom section -->
+    <div class="pt-8 space-y-4 animate-fade-in" style="animation-delay: 1s">
+      <div class="flex items-center justify-center gap-6">
+        <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-4 py-2 rounded text-sm font-medium transition-colors">
+          ⭐ Founding Member - 50 left
+        </button>
+        <button class="border border-gray-600 hover:border-gray-500 text-gray-300 px-4 py-2 rounded text-sm transition-colors">
+          📈 Interested in Investing?
+        </button>
+      </div>
+      
+      <p class="text-gray-600 text-xs">backed by no one.</p>
+      
+      <SocialShare />
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
+
 <script lang="ts">
   import { subscribeParticipant } from "./utils";
 
@@ -27,19 +28,19 @@
   }
 </script>
 
-<form onsubmit={handleSubmit} class="flex flex-col gap-3 w-full animate-fade-in" style="animation-delay: 0.4s">
+<form onsubmit={handleSubmit} class="flex items-center gap-0 max-w-md mx-auto">
   <input
     type="email"
-    placeholder="Enter your email here *"
+    placeholder="hello@email.com"
     bind:value={email}
-    class="h-10 w-full rounded-md border bg-white/20 backdrop-blur-sm text-white placeholder:text-white/70 border-white/30 focus:border-white text-sm px-3 py-2"
+    class="flex-1 h-12 bg-gray-900 border border-gray-700 border-r-0 rounded-l-md text-white placeholder:text-gray-500 px-4 focus:outline-none focus:border-gray-600"
     required
   />
   <button 
     type="submit" 
     disabled={isSubmitting}
-    class="bg-[#28365a] hover:bg-[#28365a]/90 text-white font-medium text-sm h-10 rounded-md"
+    class="h-12 bg-white hover:bg-gray-100 text-black font-medium px-6 rounded-r-md transition-colors"
   >
-    Notify Me!
+    Join
   </button>
 </form>
