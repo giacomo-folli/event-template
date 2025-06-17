@@ -1,3 +1,4 @@
+
 import { json, type RequestHandler } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
@@ -7,6 +8,10 @@ export const POST: RequestHandler = async ({ url, fetch, request }) => {
 
     if (!id) {
       return json({ error: 'No id provided' }, { status: 400 });
+    }
+
+    if (!env.API_KEY) {
+      return json({ error: 'API key not configured' }, { status: 500 });
     }
 
     const apiUrl = `https://bernini.replit.app/api/events/${id}/participants`
